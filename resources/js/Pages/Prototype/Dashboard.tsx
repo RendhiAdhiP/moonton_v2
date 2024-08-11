@@ -22,9 +22,9 @@ const Dashboard: React.FC = () => {
                 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
                 <title>Dashboard</title>
             </Head>
-            <div classNameName="">
-                <div classNameName="font-semibold text-[22px] text-black mb-4">Featured Movies</div>
-                <Flickity classNameName="gap-[30px]" options={flickityOptions} >
+            <div className="">
+                <div className="font-semibold text-[22px] text-black mb-4 ">Featured Movies</div>
+                <Flickity className="gap-[30px]" options={flickityOptions} >
                     {[1, 2, 3, 4].map(i => (
                         <FeaturedMovie key={i}
                             name="The Flash"
