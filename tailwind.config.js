@@ -11,11 +11,10 @@ export default {
     ],
 
     theme: {
+        fontFamily: {
+            poppins: 'Poppins, sans-serif'
+        },
         extend: {
-            fontFamily: {
-                poppins: 'Poppins, sans-serif'
-            },
-            extend: {
                 colors: {
                     "alerange": '#FB6908',
                     "gray-1": '#B4B4B4',
@@ -26,9 +25,8 @@ export default {
                     'laptopLg': '1160px',
                     'laptopXl': '1360px',
                 }
-            }
         },
     },
 
-    plugins: [forms],
+    plugins: [forms, defaultTheme],
 };
