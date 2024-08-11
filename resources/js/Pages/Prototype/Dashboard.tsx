@@ -2,8 +2,8 @@ import React from "react";
 import { Head } from "@inertiajs/react";
 import Flickity from "react-flickity-component";
 import Authenticated from "@/Layouts/Authenticated/Index";
-import FeaturedMovie from "@/Components/FeaturedMovie";
-import BrowseMovie from "@/Components/BrowseMovie";
+import FeaturedMovie from "@/Components/FeaturedMovie"
+import MovieCard from "@/Components/MovieCard";
 
 const Dashboard: React.FC = () => {
     const flickityOptions = {
@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
                 <div className="font-semibold text-[22px] text-black mb-4">Browse</div>
                 <Flickity className="gap-[30px]" options={flickityOptions}>
                 {[1, 2, 3, 4, 5, 6].map(i => (
-                        <BrowseMovie key={i}
+                        <MovieCard key={i}
                             name="The Flash"
                             category="Action"
                             thumbnail="/images/browse-1.png"

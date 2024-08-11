@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import React from "react";
 type PropTypes = {
     thumbnail: string
@@ -6,7 +7,7 @@ type PropTypes = {
     slug: string
 }
 
-const BrowseMovie: React.FC <PropTypes> = ( {thumbnail, name, category, slug}) => {
+const MovieCard: React.FC <PropTypes> = ( {thumbnail, name, category, slug}) => {
     return (
         <div className="absolute group overflow-hidden mr-[30px]">
             <img src={thumbnail}
@@ -22,10 +23,10 @@ const BrowseMovie: React.FC <PropTypes> = ( {thumbnail, name, category, slug}) =
                     -translate-x-1/2 z-20 transition ease-in-out duration-500">
                 <img src="/icons/ic_play.svg" className="" width="50" alt="" />
             </div>
-            {/* <a href={slug} className="inset-0 absolute z-50"></a> */}
+            <Link href={route('prototype.movie.show',slug)} className="inset-0 absolute z-50"></Link>
         </div>
     )
 }
 
 
-export default BrowseMovie
+export default MovieCard
