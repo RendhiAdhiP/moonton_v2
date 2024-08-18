@@ -59,7 +59,7 @@ const Login: React.FC = () => {
                                         </span>
                                     </Button>
                                 </Link>
-                                <Link href={route('prototype.register')}>
+                                <Link href={route('register')}>
                                     <Button
                                         type="submit"
                                         variant="light-outline"
