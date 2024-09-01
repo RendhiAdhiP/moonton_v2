@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,8 +16,11 @@ use Inertia\Inertia;
 // });
 
 Route::redirect('/', '/login');
+Route::middleware(['auth','role:user'])->prefix('dashboard')->name('user.dashboard')->group(function () {
+    Route::get('/',[DashboardController::class,'index'])->name('.index');
+});
 
-Route::prefix('prototype')->name('prototype.')->group(function () {
+Route::prefix('/prototype')->name('prototype.')->group(function () {
     Route::get('/login', function () {
         return Inertia::render('Prototype/Login');
     })->name('login');
@@ -25,12 +29,9 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
         return Inertia::render('Prototype/Register');
     })->name('register');
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Prototype/Dashboard');
-    })->name('dashboard');
-
     Route::get('/subscriptionPlan', function () {
         return Inertia::render('Prototype/SubscriptionPlan');
+        // return 'dada';
     })->name('subscriptionPlan');
 
     Route::get('/movie/{slug}', function () {
@@ -38,15 +39,15 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     })->name('movie.show');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('User/Dashboard/Index');
+// })->middleware(['auth', 'role'])->name('User.Dashboard.Index');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 
 

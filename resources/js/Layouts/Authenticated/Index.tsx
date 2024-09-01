@@ -3,7 +3,12 @@ import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 import Featured from "./Featured";
 
-const Authenticated: React.FC = ({ children }) => {
+type Props = {
+    auth: any
+    children: React.ReactNode
+}
+
+const Authenticated: React.FC<Props> = ({ auth ,children }) => {
     return (
         <>
             <div className="mx-auto max-w-screen hidden lg:block">
@@ -15,7 +20,7 @@ const Authenticated: React.FC = ({ children }) => {
                 <div className="ml-[300px] px-[50px]">
                     <div className="py-10 flex flex-col gap-[50px]">
                         {/* Top Bar */}
-                              <Topbar/>
+                              <Topbar auth={auth}/>
                         {/* End Top Bar */}
                         {/* End Fetured */}
                         <main>{children}</main>
